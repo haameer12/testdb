@@ -16,19 +16,26 @@ function onDeviceReady() {
 	
 	document.write("<li>on device ready worked</li>");
 	window.alert("start"); 
-  db = window.sqlitePlugin.openDatabase({name: 'hassan.db', location: 'default'});
+	var myDB = window.sqlitePlugin.openDatabase({name: "hassan.db", location: 'default'});
 	window.alert("end");
 	
-  db.transaction(function(tx) {
-	window.alert("db worked");
-    tx.executeSql('CREATE TABLE IF NOT EXISTS DemoTable (name, score)');
-    tx.executeSql('INSERT INTO DemoTable VALUES (?,?)', ['Alice', 101]);
-    tx.executeSql('INSERT INTO DemoTable VALUES (?,?)', ['Betty', 202]);
-  }, function(error) {
-    window.alert("<li>Transaction ERROR: ' + error.message</li>");
-  }, function() {
-    window.alert("<li>Populated database OK'</li>");
-  });
+	
+
+
+
+
+	myDB.transaction(function(transaction) {
+		window.alert("db worked");
+		transaction.executeSql('CREATE TABLE IF NOT EXISTS phonegap_pro (id integer primary key, title text, desc text)', [],
+		function(tx, result) {
+			alert("Table created successfully");
+		},
+		function(error) {
+			alert("Error occurred while creating the table.");
+		});
+	});
+
+
 
 
  
