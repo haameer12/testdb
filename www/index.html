@@ -20,6 +20,7 @@ function onDeviceReady() {
 	window.alert("end");
 	
   db.transaction(function(tx) {
+	window.alert("db worked");
     tx.executeSql('CREATE TABLE IF NOT EXISTS DemoTable (name, score)');
     tx.executeSql('INSERT INTO DemoTable VALUES (?,?)', ['Alice', 101]);
     tx.executeSql('INSERT INTO DemoTable VALUES (?,?)', ['Betty', 202]);
