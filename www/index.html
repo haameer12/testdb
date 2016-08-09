@@ -24,6 +24,9 @@ function onDeviceReady() {
 
 
 	myDB.transaction(function(transaction) {
+		
+		
+		
 		document.write("<li>db worked</li>");
 		transaction.executeSql('CREATE TABLE IF NOT EXISTS phonegap_pro (id integer primary key, title text, desc text)', [],
 		function(tx, result) {
@@ -32,7 +35,23 @@ function onDeviceReady() {
 		function(error) {
 			document.write("<li>Error occurred while creating the table.</li>");
 		});
+		
+		
+		
+		transaction.executeSql("INSERT INTO phonegap_pro (title, desc) VALUES (?,?)", ["Hassan", "Programer"], 
+		function(tx, result) {
+			alert('Inserted');
+		},
+		function(error){
+			alert('Error occurred');
+		});
+		
+		
+		
 	});
+	
+	
+	
 
 
 
