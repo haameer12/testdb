@@ -29,14 +29,14 @@ function onDeviceReady() {
 		
 		
 		
-/*		window.alert("db worked");
+		window.alert("db worked");
 		transaction.executeSql('CREATE TABLE IF NOT EXISTS phonegap_pro (id integer primary key, title text, desc text)', [],
 		function(tx, result) {
 			window.alert("Table created successfully");
 		},
 		function(error) {
 			window.alert("Error occurred while creating the table.");
-		});*/
+		});
 		
 		
 		
@@ -54,6 +54,9 @@ function onDeviceReady() {
 		transaction.executeSql("select count(id) as cnt from phonegap_pro;", [], 
 		function(tx, result) {
 			window.alert("Rows num is : " + result.rows.length +" --- " +result.rows.item(0).cnt);
+			Object.keys(result.rows).forEach(function(key) {
+				window.alert(key, result.rows[key]['title']);
+			});
 		},
 		function(error){
 			window.alert("Error occurred");
