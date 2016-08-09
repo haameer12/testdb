@@ -51,6 +51,16 @@ function onDeviceReady() {
 		
 		
 		
+		transaction.executeSql("select count(id) as cnt from phonegap_pro;", [], 
+		function(tx, result) {
+			window.alert("Rows num is : " + result.rows.length +" --- " +result.rows.item(0).cnt);
+		},
+		function(error){
+			window.alert("Error occurred");
+		});
+		
+		
+		
 		
 		
 	});
