@@ -15,9 +15,8 @@ function onDeviceReady() {
 	
 	
 	document.write("<li>on device ready worked</li>");
-	window.alert("start"); 
 	var myDB = window.sqlitePlugin.openDatabase({name: "hassan.db", location: 'default'});
-	window.alert("end");
+
 	
 	
 
@@ -25,13 +24,13 @@ function onDeviceReady() {
 
 
 	myDB.transaction(function(transaction) {
-		window.alert("db worked");
+		document.write("<li>db worked</li>");
 		transaction.executeSql('CREATE TABLE IF NOT EXISTS phonegap_pro (id integer primary key, title text, desc text)', [],
 		function(tx, result) {
-			alert("Table created successfully");
+			document.write("<li>Table created successfully</li>");
 		},
 		function(error) {
-			alert("Error occurred while creating the table.");
+			document.write("<li>Error occurred while creating the table.</li>");
 		});
 	});
 
