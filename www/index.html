@@ -25,9 +25,9 @@ function onDeviceReady() {
     tx.executeSql('INSERT INTO DemoTable VALUES (?,?)', ['Alice', 101]);
     tx.executeSql('INSERT INTO DemoTable VALUES (?,?)', ['Betty', 202]);
   }, function(error) {
-    document.write("<li>Transaction ERROR: ' + error.message</li>");
+    window.alert("<li>Transaction ERROR: ' + error.message</li>");
   }, function() {
-    document.write("<li>Populated database OK'</li>");
+    window.alert("<li>Populated database OK'</li>");
   });
 
 
