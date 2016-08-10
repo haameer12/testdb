@@ -15,7 +15,7 @@ function onDeviceReady() {
 	
 	
 	window.alert("on device ready worked");
-	var myDB = window.sqlitePlugin.openDatabase({name: "hassan.db", createFromLocation: 1 });
+	var myDB = window.sqlitePlugin.openDatabase({name: "hassan.db", createFromLocation: 1});
 
 	
 	
@@ -41,7 +41,7 @@ function onDeviceReady() {
 		
 		
 		
-		transaction.executeSql("INSERT INTO phonegap_pro (title, desc) VALUES (?,?)", ["Hassan", "Programer"], 
+		transaction.executeSql("INSERT INTO phonegap_pro (title, desc) VALUES (?,?)", ["hassan", "programer"], 
 		function(tx, result) {
 			window.alert("Inserted");
 		},
