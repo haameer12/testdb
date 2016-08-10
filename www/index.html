@@ -15,7 +15,7 @@ function onDeviceReady() {
 	
 	
 	window.alert("on device ready worked");
-	var myDB = window.sqlitePlugin.openDatabase({name: "hassan.db", location: 'default'});
+	var myDB = window.sqlitePlugin.openDatabase({name: "hassan.db", createFromLocation: 1 });
 
 	
 	
