@@ -61,15 +61,15 @@ function onDeviceReady() {
 		
 		
 		
-/*		
-		transaction.executeSql("select title, desc from phonegap_pro;", [], 
+		
+		transaction.executeSql("select * from phonegap_pro;", [],
 		function(tx, result) {
-			window.alert(result.rows.item(2).title +" -- " +result.rows.item(2).desc);
+			window.alert(result.rows.item(0).title +" -- " +result.rows.item(0).desc);
 		},
 		function(error){
 			window.alert("Error occurred");
 		});
-		*/
+		
 		
 		
 		
