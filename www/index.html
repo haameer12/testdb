@@ -66,7 +66,7 @@ function onDeviceReady() {
 		transaction.executeSql("select * from phonegap_pro;", [],
 		function(tx, result) {
 
-			$.each(result, function( key, val ) {
+			$.each(results.rows, function( key, val ) {
 				$("#TableData").append("<tr><td>"+val.id+"</td><td>"+val.title+"</td><td>"+val.desc+"</td></tr>");
 			});
 
