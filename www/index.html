@@ -29,17 +29,64 @@ function onDeviceReady() {
 		
 		
 		
-
+		window.alert("db worked");
+		transaction.executeSql('CREATE TABLE IF NOT EXISTS phonegap_pro (id integer primary key, title text, desc text)', [],
+		function(tx, result) {
+			window.alert("Table created successfully");
+		},
+		function(error) {
+			window.alert("Error occurred while creating the table.");
+		});
 		
 		
 		
-		transaction.executeSql("select * from phonegap_pro;", [],
+		
+		transaction.executeSql("INSERT INTO phonegap_pro (title, desc) VALUES (?,?)", ["hassan", "programer"], 
+		function(tx, result) {
+			window.alert("Inserted");
+		},
+		function(error){
+			window.alert("Error occurred");
+		});
+		
+		
+		
+		transaction.executeSql("select count(id) as cnt from phonegap_pro;", [], 
+		function(tx, result) {
+			window.alert("Rows num is : " + result.rows.length +" --- " +result.rows.item(0).cnt);
+		},
+		function(error){
+			window.alert("Error occurred");
+		});
+		
+		
+		
+		
+		transaction.executeSql("select * From phonegap_pro;", [],
 		function(tx, result) {
 			window.alert(result.rows.item(0).title +" -- " +result.rows.item(0).desc);
 		},
 		function(error){
 			window.alert("Error occurred");
 		});
+		
+		
+		
+		
+		
+		
+		
+
+		transaction.executeSql('SELECT * FROM phonegap_pro', []
+		function (tx, results) {
+			var len = results.rows.length, i;
+			$("#rowCount").append(len);
+			for (i = 0; i < len; i++){
+				$("#TableData").append("<tr><td>"+results.rows.item(i).id+"</td><td>"+results.rows.item(i).title+"</td><td>"+results.rows.item(i).desc+"</td></tr>");
+			}
+		}, null);
+		
+		
 		
 		
 		
@@ -59,8 +106,10 @@ function onDeviceReady() {
 </head>
 
 <body>
+<div id="rowCount"></div>
+<table id="TableData">
 
-
+</table>
 
 بسم الله الرحمن الرحيم
 يا الله
