@@ -67,7 +67,8 @@ function onDeviceReady() {
 		function(tx, result) {
 
 			$.each(results.rows, function( key, val ) {
-				$("#TableData").append("<tr><td>"+val.id+"</td><td>"+val.title+"</td><td>"+val.desc+"</td></tr>");
+				window.alert(val.title);
+				//$("#TableData").append("<tr><td>"+val.id+"</td><td>"+val.title+"</td><td>"+val.desc+"</td></tr>");
 			});
 
 		},
