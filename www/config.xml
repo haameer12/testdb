@@ -6,10 +6,10 @@
         id        = "testdbbb"
         version   = "1.0.0">
 
-    <name>testdb</name>
+    <name>testdbbbb</name>
 
     <description>
-        testdb
+        testdbbb
     </description>
 
     <author href="http://phonegap.com" email="support@phonegap.com">
