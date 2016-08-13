@@ -63,9 +63,13 @@ function onDeviceReady() {
 		
 		
 		
-		transaction.executeSql("select * From phonegap_pro;", [],
+		transaction.executeSql("select * from phonegap_pro;", [],
 		function(tx, result) {
-			window.alert(result.rows.item(0).title +" -- " +result.rows.item(0).desc);
+			var len = results.rows.length, i;
+			$("#rowCount").append(len);
+			for (i = 0; i < len; i++){
+				$("#TableData").append("<tr><td>"+results.rows.item(i).id+"</td><td>"+results.rows.item(i).title+"</td><td>"+results.rows.item(i).desc+"</td></tr>");
+			}
 		},
 		function(error){
 			window.alert("Error occurred");
@@ -76,19 +80,7 @@ function onDeviceReady() {
 		
 		
 		
-		
-
-		transaction.executeSql('SELECT * FROM phonegap_pro', []
-		function (tx, results) {
-			var len = results.rows.length, i;
-			$("#rowCount").append(len);
-			for (i = 0; i < len; i++){
-				$("#TableData").append("<tr><td>"+results.rows.item(i).id+"</td><td>"+results.rows.item(i).title+"</td><td>"+results.rows.item(i).desc+"</td></tr>");
-			}
-		}, null);
-		
-		
-		
+	
 		
 		
 		
@@ -108,8 +100,9 @@ function onDeviceReady() {
 
 <body>
 <div id="rowCount"></div>
-<table id="TableData">
-
+<table border="1" cellpadding="5" cellspacing="5">
+    <div id="TableData">
+    </div>
 </table>
 
 بسم الله الرحمن الرحيم
