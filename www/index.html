@@ -65,11 +65,11 @@ function onDeviceReady() {
 		
 		transaction.executeSql("select * from phonegap_pro;", [],
 		function(tx, result) {
-			/*var len = results.rows.length, i;
-			$("#rowCount").append(len);
-			for (i = 0; i < len; i++){
-				$("#TableData").append("<tr><td>"+results.rows.item(i).id+"</td><td>"+results.rows.item(i).title+"</td><td>"+results.rows.item(i).desc+"</td></tr>");
-			}*/
+
+			$.each(result, function( key, val ) {
+				$("#TableData").append("<tr><td>"+val.id+"</td><td>"+val.title+"</td><td>"+val.desc+"</td></tr>");
+			});
+
 		},
 		function(error){
 			window.alert("Error occurred");
@@ -99,7 +99,7 @@ function onDeviceReady() {
 </head>
 
 <body>
-<div id="rowCount"></div>
+
 <table border="1" cellpadding="5" cellspacing="5">
     <div id="TableData">
     </div>
